@@ -9,21 +9,21 @@ import { OpenOrders } from "@project-serum/serum";
 import BN from "bn.js";
 
 async function getTokenAccounts(connection: Connection, owner: PublicKey) {
-  const tokenResp = await connection.getTokenAccountsByOwner(owner, {
-    programId: TOKEN_PROGRAM_ID,
-  });
-
-  const accounts: TokenAccount[] = [];
-  for (const { pubkey, account } of tokenResp.value) {
-    accounts.push({
-      pubkey,
-      accountInfo: SPL_ACCOUNT_LAYOUT.decode(account.data),
+    const tokenResp = await connection.getTokenAccountsByOwner(owner, {
+      programId: TOKEN_PROGRAM_ID,
     });
+  
+    const accounts: TokenAccount[] = [];
+    for (const { pubkey, account } of tokenResp.value) {
+      accounts.push({
+        pubkey,
+        accountInfo: SPL_ACCOUNT_LAYOUT.decode(account.data),
+        programId: TOKEN_PROGRAM_ID, // Add this line
+      });
+    }
+  
+    return accounts;
   }
-
-  return accounts;
-}
-
 // raydium pool id can get from api: https://api.raydium.io/v2/sdk/liquidity/mainnet.json
 const SOL_USDC_POOL_ID = "58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2";
 const OPENBOOK_PROGRAM_ID = new PublicKey(
@@ -31,7 +31,13 @@ const OPENBOOK_PROGRAM_ID = new PublicKey(
 );
 
 export async function parsePoolInfo() {
-  const connection = new Connection({mainnet rpc node}, "confirmed");
+//   const connection = new Connection({mainnet rpc node}, "confirmed");
+
+  const connection = new Connection(
+    "https://api.mainnet-beta.solana.com", 
+    "confirmed"
+  );
+
   const owner = new PublicKey("VnxDzsZ7chE88e9rB6UKztCt2HUwrkgCTx8WieWf5mM");
 
   const tokenAccounts = await getTokenAccounts(connection, owner);
@@ -99,3 +105,8 @@ export async function parsePoolInfo() {
 }
 
 parsePoolInfo();
+
+
+
+// → Input: Pool Address (e.g., 58oQChx...4hNy)
+// → Output: Base/Quote Token Balances
