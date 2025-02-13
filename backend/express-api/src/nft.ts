@@ -1,8 +1,12 @@
 import { Metaplex, keypairIdentity } from "@metaplex-foundation/js";
 import { Connection, PublicKey } from "@solana/web3.js";
 
-async function getNFTMetadata(mintAddress: string) {
+export async function getNFTMetadata(mintAddress: string) {
   // Initialize the connection to the Solana cluster
+  
+  try{
+
+  
   const connection = new Connection("https://api.mainnet-beta.solana.com", "confirmed");
 
 
@@ -18,7 +22,7 @@ async function getNFTMetadata(mintAddress: string) {
 
 
   // Log the NFT metadata
-  console.log({
+  const nftData = ({
     name: nft.name,  // ✅ NFT project name (Correct)
     symbol: nft.symbol,  // ✅ Token symbol (Correct)
     description: nft.json?.description,  // ✅ NFT description (Correct)
@@ -31,12 +35,17 @@ async function getNFTMetadata(mintAddress: string) {
     metadata_uri: nft.uri,  // ✅ Metadata URI (Correct)
 });
 
-  return nft.json;
+   return nftData;
+
+  }catch (error) {
+    console.error("Error fetching NFT metadata:", error);
+    return null;
+}
+
 }
 
 // Example mint address
-const mintAddress = "8qfPaiceC1xR7dfePdW74k7TP4sH9AG7nRrr9acSGZNg";
-getNFTMetadata(mintAddress);
+
 
 // → Input: Mint Address (e.g., metaqbxx...518x1s)
 // → Output:  name: nft.name,  // ✅ NFT project name (Correct)
