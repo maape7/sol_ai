@@ -1,25 +1,70 @@
-# NFT Scam Detection AI System
+# Solana NFT Scam Detection AI System
 
 ## Overview
 
 ### Problem
-NFT scams are prevalent on the Solana blockchain, with malicious actors using deceptive metadata, fake domains, and phishing tactics to trick users. Identifying fraudulent NFTs in real time is challenging, as manual verification is time-consuming and unreliable.
+NFT scams are prevalent on the **Solana blockchain**, with malicious actors using **deceptive metadata, fake domains, and phishing tactics** to trick users. Identifying fraudulent NFTs in real time is challenging, as manual verification is time-consuming and unreliable.
 
 ### Our Project & Solution
-This AI-powered system detects scam NFTs by analyzing their metadata and associated domain (website). It integrates an **SGDClassifier-based machine learning model** with blockchain data from **Solana RPC** to provide a **real-time scam risk score**. 
+This AI-powered system detects scam NFTs by analyzing their **metadata** and associated **domain (website)**. It integrates an **SGDClassifier-based machine learning model** with blockchain data from **Solana RPC** to provide a **real-time scam risk score**. 
 
-Key Features:
+### Key Features:
 - **Real-Time Scam Detection**: Instantly evaluates NFTs to alert users of potential fraud.
 - **Multi-Layered Analysis**: Assesses metadata, domain legitimacy, and other risk factors.
 - **Scalable & Efficient**: Designed for easy integration and expansion across NFT marketplaces.
 
-By leveraging AI and Solana RPC, our system helps users **stay aware of scams** and make informed decisions before engaging with an NFT.
+By leveraging **AI and Solana RPC**, our system helps users **stay aware of scams** and make informed decisions before engaging with a **Solana NFT**.
+
+---
+
+## **Scalable Roadmap**
+
+The scalability of this project is **seamless** due to its ability to integrate with **wallets like Phantom and Backpack**, ensuring **immediate adoption**. The roadmap includes the following key enhancements:
+
+### **1. Seamless Integration**
+- Develop the system as a **plug-and-play API** or **wallet extension**.
+- Ensure compatibility with **Phantom**, **Backpack**, and other Solana-based wallets.
+- Provide **real-time scam alerts** directly within wallet interfaces.
+
+### **2. Expanding Data Sources**
+- Improve scam detection by **incorporating user-reported scam inputs** (community-driven risk assessment).
+- Utilize **on-chain and off-chain data** to refine detection models.
+- Implement **automated web scraping** and **API integrations** to collect metadata from NFT marketplaces.
+
+### **3. Advanced AI Models**
+- Upgrade from the current **SGDClassifier** to more **powerful deep learning models**.
+- Implement **rug pull detection**, analyzing transactional behavior and liquidity withdrawals.
+- Enhance domain verification by **cross-checking site credibility** and detecting phishing attempts.
+
+---
+
+## **Impact Assessment**
+### **1. Protection Against NFT Scams**
+- **Real-time scam detection** significantly reduces the risk of users purchasing fraudulent NFTs.
+- Helps protect **Solana users and investors** from losing funds due to deceptive projects.
+  
+### **2. Increased Trust in NFT Marketplaces**
+- By integrating scam detection into **wallets and marketplaces**, users gain confidence in NFT transactions.
+- **Enhanced due diligence** helps projects build credibility.
+
+### **3. Scalability & Adoption**
+- The **modular API design** allows for **fast integration** with existing platforms.
+- Can be **adopted by exchanges, wallets, and NFT launchpads**, making the entire Solana ecosystem safer.
+
+### **4. Future-Proof Security**
+- As AI models improve, the system evolves to **detect newer scam tactics**.
+- **Community-driven scam reporting** ensures **continuous updates** and better fraud detection.
+
+---
+
+This roadmap and impact assessment highlight the system’s **scalability, effectiveness, and potential widespread adoption** within the **Solana ecosystem**.
+
 
 
 ## Technology Stack
 
 ### **Frontend:**
-- **React.js** – For the user interface, allowing users to input an NFT mint address and retrieve scam scores.
+- **React.js** – For the user interface, allowing users to input an Solana NFT mint address and retrieve scam scores.
 
 ### **Backend:**
 ### Express.js
@@ -56,23 +101,32 @@ By leveraging AI and Solana RPC, our system helps users **stay aware of scams** 
  npm install
  npm start
 ```
-#### **For Backend (Express.js & FastAPI)**
+
+#### **For Backend Express.js**
 ```sh
- cd backend
+ cd backend/express-api
  npm install  # For Express.js API
+```
+
+#### **For Backend FastAPI**
+```sh
+ cd backend/fastapi-api
  python -m venv venv
  source venv/bin/activate  # On Windows use: venv\Scripts\activate
  pip install -r requirements.txt  # For FastAPI & AI model
 ```
 
+
 ### **3. Run the Services:**
 #### **Start Express.js API:**
 ```sh
- node server.js
+# Start the Express.js server with Nodemon (for hot-reloading)
+npx nodemon --ext ts src/server.ts
 ```
 #### **Start FastAPI Server:**
 ```sh
- uvicorn main:app --reload
+# Start the FastAPI server with Uvicorn
+uvicorn app.main:app --reload
 ```
 
 ## How It Works
@@ -165,10 +219,6 @@ export async function getNFTMetadata(mintAddress: string) {
 As the dataset grows, the system will become even more robust, making NFT Scam detection **more precise and scalable**. 🚀  
 
 
-## Future Enhancements
-- **Expanding Data Sources**: Improve scam detection by integrating more data through **customer feedback**, **API-based or scraping**.
-- **Advanced AI Models**: Upgrade from the current classifier to **more powerful machine learning models**, incorporating **rug pull analysis** and **detailed transaction tracking** for broader scam detection.  
-- **Seamless Integration**: Develop the system into a **plug-and-play API** or **extension** that can be easily integrated with wallets like **Phantom** and **Backpack**, ensuring immediate scalability.  
 
 ## Contributors
 - **Your Name** – Siddharth N (Sid)
