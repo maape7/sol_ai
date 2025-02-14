@@ -17,6 +17,7 @@ vectorizer = joblib.load("solana_vectorizer.pkl")
 score_data = {"score": 0}
 
 def is_domain_suspicious(external_url):
+    
     """Check if a domain is suspicious based on various heuristics."""
     
     suspicious_tlds = ['.xyz', '.top', '.online', '.tk', '.ml', '.gq']
