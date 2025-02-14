@@ -19,11 +19,11 @@ By leveraging **AI and Solana RPC**, our system helps users **stay aware of scam
 
 
 ## **Impact Assessment**
-### **1. Protection Against NFT Scams**
+### **1. Protection Against Solana NFT Scams**
 - **Real-time scam detection** significantly reduces the risk of users purchasing fraudulent NFTs.
 - Helps protect **Solana users and investors** from losing funds due to deceptive projects.
   
-### **2. Increased Trust in NFT Marketplaces**
+### **2. Increased Trust in Solana NFT Marketplaces**
 - By integrating scam detection into **wallets and marketplaces**, users gain confidence in NFT transactions.
 - **Enhanced due diligence** helps projects build credibility.
 
@@ -33,12 +33,13 @@ By leveraging **AI and Solana RPC**, our system helps users **stay aware of scam
 
 ### **4. Future-Proof Security**
 - As AI models improve, the system evolves to **detect newer scam tactics**.
-- **Community-driven scam reporting** ensures **continuous updates** and better fraud detection.
+- **Community-driven scam reporting** ensures **continuous updates** and better Scam detection.
 
 ---
 ## **Scalable Roadmap**
 
-The scalability of this project is **seamless** due to its ability to integrate with **wallets like Phantom and Backpack**, ensuring **immediate adoption**. The roadmap includes the following key enhancements:
+The scalability of this project is **Very Easy** due to its seamless integration with **wallets like Phantom and Backpack**. Additionally, it can be developed as a **standalone API**, enabling **immediate adoption**. More information is mentioned below. 
+
 
 ### **1. Seamless Integration**
 - Develop the system as a **plug-and-play API** or **wallet extension**.
@@ -48,7 +49,7 @@ The scalability of this project is **seamless** due to its ability to integrate 
 ### **2. Expanding Data Sources**
 - Improve scam detection by **incorporating user-reported scam inputs** (community-driven risk assessment).
 - Utilize **on-chain and off-chain data** to refine detection models.
-- Implement **automated web scraping** and **API integrations** to collect metadata from NFT marketplaces.
+- Implement **automated web scraping** and **API integrations** to collect comprehensive data from Solana NFT marketplaces, including scam reports, legitimate listings, and associated risk factors. This ensures that AI models are trained with high-quality, diverse data, leading to more accurate and efficient scam detection.
 
 ### **3. Advanced AI Models**
 - Upgrade from the current **SGDClassifier** to more **powerful deep learning models**.
