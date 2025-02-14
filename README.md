@@ -17,7 +17,6 @@ By leveraging **AI and Solana RPC**, our system helps users **stay aware of scam
 
 ---
 
-
 ## **Impact Assessment**
 ### **1. Protection Against Solana NFT Scams**
 - **Real-time scam detection** significantly reduces the risk of users purchasing fraudulent NFTs.
@@ -56,6 +55,104 @@ The scalability of this project is **Very Easy** due to its seamless integration
 - Implement **rug pull detection**, analyzing transactional behavior and liquidity withdrawals.
 - Enhance domain verification by **cross-checking site credibility** and detecting phishing attempts.
 
+---
+# AI Model Overview: Solana NFT Scam Detection  
+
+This project utilizes a **hybrid approach** combining **heuristic rules** and **machine learning (ML)** to detect potential NFT scams on the Solana blockchain.  
+
+## 🔹 AI Model  
+- **Algorithm:** Stochastic Gradient Descent (SGD) Classifier  
+- **Feature Extraction:** TF-IDF (Term Frequency-Inverse Document Frequency)  
+- **Training Data:** 100 labeled samples (50 scams, 50 legitimate)  
+- **Training Framework:** Scikit-learn  
+
+## 🔹 Heuristic-Based Detection  
+The system also applies **rule-based scoring** to assess suspicious patterns, such as:  
+- 🚩 **Domain Analysis** (e.g., `.xyz`, `.top`, keywords like "giveaway")  
+- 🚩 **Project Description Analysis** (e.g., "risk-free", "double your money")  
+
+## 🔹 How It Works  
+1. **Heuristic Analysis:** Assigns a risk score based on predefined scam patterns.  
+2. **ML Classification:** The trained **SGDClassifier** predicts if a project is fraudulent.  
+3. **Final Score:** A combined score determines the scam likelihood.  
+
+---
+
+## How It Works
+1. **User inputs an NFT mint address** → React frontend sends a request to Express.js API.
+2. **Express.js API fetches NFT metadata** from Solana via Web3.js.
+3. **Metadata is processed by AI model** → Scam score is predicted using a trained SGD classifier.
+4. **Scam score is returned to the user** → Displayed in a simple UI as a score out of 100.
+
+## Example Code Snippets
+
+### **Python AI Model**
+```python
+import re
+import joblib
+from sklearn.metrics import classification_report
+
+# Load the trained model and vectorizer
+model = joblib.load("solana_nft_scam_model.pkl")
+vectorizer = joblib.load("solana_vectorizer.pkl")
+
+ # 🔹 Step 2: ML Model Prediction
+X_test_tfidf = vectorizer.transform([description])  # Vectorize input
+prediction = model.predict(X_test_tfidf)[0]  # Get model prediction (1 = Scam, 0 = Not Scam)
+
+if prediction == 1:
+    print("scam")
+        score_data["score"] += 25  # ✅ Boost score if ML model flags it as a scam
+    else:
+        print("No scam")
+
+```
+
+### **Solana Metadata Fetching (JavaScript)**
+```Typescript
+export async function getNFTMetadata(mintAddress: string) {
+  // Initialize the connection to the Solana cluster
+  
+  try{
+
+  
+  const connection = new Connection("https://api.mainnet-beta.solana.com", "confirmed");
+
+
+
+  // Initialize Metaplex with the connection
+  const metaplex = new Metaplex(connection);
+
+  // Convert the mint address to a PublicKey
+  const mint = new PublicKey(mintAddress);
+
+  // Fetch the NFT metadata
+  const nft = await metaplex.nfts().findByMint({ mintAddress: mint });
+
+
+  // Log the NFT metadata
+  const nftData = ({
+    name: nft.name,  // ✅ NFT project name (Correct)
+    symbol: nft.symbol,  // ✅ Token symbol (Correct)
+    description: nft.json?.description,  // ✅ NFT description (Correct)
+    image: nft.json?.image,  // ✅ Image URL (Correct)
+    external_url: nft.json?.external_url,  // ✅ Project's external URL (Correct)
+    seller_fee_basis_points: nft.sellerFeeBasisPoints,  // ✅ Royalties percentage (Correct)
+    creators: nft.creators?.map(creator => creator.address.toBase58()),  // ✅ Creator addresses (Correct)
+    update_authority: nft.updateAuthorityAddress.toBase58(),  // ✅ Who controls updates? (Correct)
+    mint_address: nft.address.toBase58(),  // ✅ Mint address (Fixed Error: nft.address instead of nft.mintAddress)
+    metadata_uri: nft.uri,  // ✅ Metadata URI (Correct)
+});
+
+   return nftData;
+
+  }catch (error) {
+    console.error("Error fetching NFT metadata:", error);
+    return null;
+}
+
+}
+```
 ---
 
 ## Technology Stack
