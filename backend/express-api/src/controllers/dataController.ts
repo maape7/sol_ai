@@ -14,14 +14,14 @@ export const sendToFastAPI = async (req: Request, res: Response) => {
         console.log("mintAddress -->", mintAddress)
 
         // const mintAddress = "8qfPaiceC1xR7dfePdW74k7TP4sH9AG7nRrr9acSGZNg";
-        // const data = await getNFTMetadata(mintAddress);
+        const data = await getNFTMetadata(mintAddress);
 
-        const data = {
+        // const data = {
 
-           "external_url":"https://www.solanamoneyboys.xyz",
-           "description": "Get exclusive Solana tokens now—only a few left!"
+        //    "external_url":"https://www.solanamoneyboys.xyz",
+        //    "description": "Get exclusive Solana tokens now—only a few left!"
 
-        }
+        // }
 
         
         const fastApiUrl = process.env.FASTAPI_URL || "http://localhost:8000/api/analyze";
@@ -35,7 +35,11 @@ export const sendToFastAPI = async (req: Request, res: Response) => {
             console.log(" nft_metadata: data.external_url", data.external_url)
             console.log(" description: data.description ",  data.description )
             console.log("API Response:", response.data);
-            res.status(201).json(response.data);
+            res.status(201).json({
+                message: "NFT data and Scam analysis retrieved successfully",
+                metadata: data,
+                fraudAnalysis: response.data,
+            });
         }
        
     } catch (error) {
@@ -43,6 +47,64 @@ export const sendToFastAPI = async (req: Request, res: Response) => {
         res.status(500).json({ error: "Error processing fraud check" });
     }
 };
+
+
+
+// export const sendToFastAPI = async (req: Request, res: Response) => {
+//     try {
+
+        
+//         // later keep 
+//         const mintAddress = req.body;
+
+
+//         const mintAddres = "8qfPaiceC1xR7dfePdW74k7TP4sH9AG7nRrr9acSGZNg";
+
+        
+
+//         console.log("mintAddress -->", mintAddres)
+
+//         // const mintAddress = "8qfPaiceC1xR7dfePdW74k7TP4sH9AG7nRrr9acSGZNg";
+//         const data = await getNFTMetadata(mintAddress);
+
+//         // const data = {
+
+//         //    "external_url":"https://www.solanamoneyboys.com",
+//         //    "description": "Get exclusive Solana tokens now—only a few left!"
+
+//         // }
+        
+
+        
+//         const fastApiUrl = process.env.FASTAPI_URL || "http://localhost:8000/api/analyze";
+//         // Send data to FastAPI
+//         if (data) {
+//             const response = await axios.post(fastApiUrl, {
+//                 nft_metadata: data.external_url, // Send all NFT metadata properly
+//                 description: data.description // Ensure 'description' is properly accessed
+//             });
+           
+
+
+//             console.log(" nft_metadata: data.external_url", data.external_url)
+//             console.log(" description: data.description ",  data.description )
+//             console.log("API Response:", response.data);
+            
+            // res.status(201).json({
+            //     message: "NFT data and Scam analysis retrieved successfully",
+            //     metadata: data,
+            //     fraudAnalysis: response.data,
+            // });
+           
+//         }
+       
+//     } catch (error) {
+//         console.error("Error processing fraud check:", error);
+//         res.status(500).json({ error: "Error processing fraud check" });
+//     }
+// };
+
+
 
 // exampel
 // Define the data to send

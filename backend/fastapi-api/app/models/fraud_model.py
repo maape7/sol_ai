@@ -20,8 +20,16 @@ def is_domain_suspicious(external_url):
     
     """Check if a domain is suspicious based on various heuristics."""
     
-    suspicious_tlds = ['.xyz', '.top', '.online', '.tk', '.ml', '.gq']
-    scam_keywords = ['giveaway', 'free', 'claim', 'mint', 'bonus', 'official', 'earn']
+    suspicious_tlds = [
+        '.xyz', '.top', '.online', '.tk', '.ml', '.gq', '.cc', '.cf', '.ga', '.ve',
+        '.pw', '.bd', '.ke', '.ng', '.pk', '.ru', '.in', '.ph', '.click', '.bond']
+
+    scam_keywords = [
+        'giveaway', 'free', 'claim', 'mint', 'bonus', 'earn',
+        'bigdaddyapeclub', 'bigdaddyape', 'apeclub', 'daddyape', 'daddyapeclub',
+        'airdrop', 'exclusive', 'limited', 'urgent', 'winner', 'congratulations',
+        'prize', 'redeem', 'instant', 'reward']
+
     
     # Extract domain name
     domain = re.sub(r"https?://(www\.)?", "", external_url).split('/')[0]
@@ -41,10 +49,11 @@ def analyze_project_description(description):
     """Analyze project description using scam-related keywords and ML model."""
     
     scam_keywords = {
-        'guaranteed': 3, 'risk-free': 3, 'official giveaway': 4, 
-        'limited mint': 2, 'double your money': 5, 'act now': 3, 
-        'instant profit': 4, 'exclusive deal': 3, 'no loss': 4
-    }
+    'guaranteed': 3, 'risk-free': 3, 'official giveaway': 4,
+    'limited mint': 2, 'double your money': 5, 'act now': 3,
+    'instant profit': 4, 'exclusive deal': 3, 'no loss': 4,
+    'limited time offer': 3, 'click here': 2, 'urgent response': 3,
+    '100% free': 4, 'secure investment': 3, 'high returns': 4}
 
     # Convert description to lowercase
     description = description.lower()
