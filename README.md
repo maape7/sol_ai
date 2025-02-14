@@ -17,6 +17,25 @@ By leveraging **AI and Solana RPC**, our system helps users **stay aware of scam
 
 ---
 
+
+## **Impact Assessment**
+### **1. Protection Against NFT Scams**
+- **Real-time scam detection** significantly reduces the risk of users purchasing fraudulent NFTs.
+- Helps protect **Solana users and investors** from losing funds due to deceptive projects.
+  
+### **2. Increased Trust in NFT Marketplaces**
+- By integrating scam detection into **wallets and marketplaces**, users gain confidence in NFT transactions.
+- **Enhanced due diligence** helps projects build credibility.
+
+### **3. Scalability & Adoption**
+- The **modular API design** allows for **fast integration** with existing platforms.
+- Can be **adopted by exchanges, wallets, and NFT launchpads**, making the entire Solana ecosystem safer.
+
+### **4. Future-Proof Security**
+- As AI models improve, the system evolves to **detect newer scam tactics**.
+- **Community-driven scam reporting** ensures **continuous updates** and better fraud detection.
+
+---
 ## **Scalable Roadmap**
 
 The scalability of this project is **seamless** due to its ability to integrate with **wallets like Phantom and Backpack**, ensuring **immediate adoption**. The roadmap includes the following key enhancements:
@@ -37,29 +56,6 @@ The scalability of this project is **seamless** due to its ability to integrate 
 - Enhance domain verification by **cross-checking site credibility** and detecting phishing attempts.
 
 ---
-
-## **Impact Assessment**
-### **1. Protection Against NFT Scams**
-- **Real-time scam detection** significantly reduces the risk of users purchasing fraudulent NFTs.
-- Helps protect **Solana users and investors** from losing funds due to deceptive projects.
-  
-### **2. Increased Trust in NFT Marketplaces**
-- By integrating scam detection into **wallets and marketplaces**, users gain confidence in NFT transactions.
-- **Enhanced due diligence** helps projects build credibility.
-
-### **3. Scalability & Adoption**
-- The **modular API design** allows for **fast integration** with existing platforms.
-- Can be **adopted by exchanges, wallets, and NFT launchpads**, making the entire Solana ecosystem safer.
-
-### **4. Future-Proof Security**
-- As AI models improve, the system evolves to **detect newer scam tactics**.
-- **Community-driven scam reporting** ensures **continuous updates** and better fraud detection.
-
----
-
-This roadmap and impact assessment highlight the system’s **scalability, effectiveness, and potential widespread adoption** within the **Solana ecosystem**.
-
-
 
 ## Technology Stack
 
