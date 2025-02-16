@@ -55,7 +55,7 @@ Identifying fraudulent NFTs in real time is challenging, as manual verification 
 This AI-powered system detects scam NFTs by analyzing their **metadata** and associated **domain (website)**. It integrates an **SGDClassifier-based machine learning model** with blockchain data from **Solana RPC** to provide a **real-time scam risk score**. 
 
 ### Key Features:
-- **Real-Time Scam Detection**: Instantly evaluates NFTs to alert users of potential fraud.
+- **Real-Time Scam Detection**: Instantly evaluates NFTs to alert users of potential Scam.
 - **Multi-Layered Analysis**: Assesses metadata, domain legitimacy, and other risk factors.
 - **Scalable & Efficient**: Designed for easy integration and expansion across NFT marketplaces.
 
@@ -298,5 +298,3 @@ uvicorn app.main:app --reload
 As the dataset grows, the system will become even more robust, making Solana NFT Scam detection **more precise and scalable**. 🚀  
 
 
-## Contributors
-– Siddharth N (Sid)
