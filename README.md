@@ -47,7 +47,7 @@
 ## Overview
 
 ### Problem
-NFT scams are prevalent on the **Solana blockchain**, with malicious actors using **deceptive metadata, fake domains, and phishing tactics** to trick users. (Causes million dollar in losses)
+NFT scams are prevalent on the **Solana blockchain**, with malicious actors using **deceptive metadata, fake domains, and phishing tactics** to trick users. (Causes millions of dollar in losses)
 
 Identifying fraudulent NFTs in real time is challenging, as manual verification is time-consuming and unreliable.
 
